@@ -17,7 +17,6 @@ This project focuses on analyzing the SAT performance of New York City (NYC) pub
   schools = pd.read_csv("schools.csv")
   
   Threshold = 0.8 * 800
-  
   best_math_schools = schools.loc[schools['average_math'] >= Threshold, ['school_name', 'average_math']]
   best_math_schools = best_math_schools.sort_values(by='average_math', ascending=False)
   ```
@@ -48,7 +47,3 @@ This project focuses on analyzing the SAT performance of New York City (NYC) pub
 ## Conclusion
 
 The analysis of NYC public school SAT performance provides valuable insights into top-performing schools, specifically in math, across all sections, and identifies the borough with the highest variability in SAT scores. These findings contribute to informed decision-making for education professionals, policymakers, researchers, and parents.
-
----
-
-Feel free to customize the content further based on additional details or specific preferences!
