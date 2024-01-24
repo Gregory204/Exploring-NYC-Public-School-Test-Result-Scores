@@ -69,17 +69,63 @@ This project focuses on analyzing the SAT performance of New York City (NYC) pub
 <img width="314" alt="Screenshot 2024-01-24 at 9 35 45 AM" src="https://github.com/Gregory204/NYC-SAT-Insights/assets/131078905/f1c82389-9547-49df-b860-8af79e4b2a68">
 
 
-### 3. Locating NYC Borough with Largest Standard Deviation
+### 3. Locating NYC Borough with Highest Number of Schools, Largest mean for SAT scores, and Largest Standard Deviation:
 
-- **Objective:** Locate the NYC borough with the largest standard deviation for "total_SAT" and store the results in a DataFrame named "largest_std_dev". The DataFrame includes the "borough" as the index, "num_schools" for the number of schools in the borough, "average_SAT" for the mean of "total_SAT", and "std_SAT" for the standard deviation.
+- **First Objective:** Locating NYC Borough with Highest Number of Schools. Store it in a variable called largest_count that gives us the borough with the highest quanity of schools in that borough. 
 
 - **Code Snippet:**
   ```python
+  schools["total_SAT"] = schools['average_math'] + schools['average_reading'] + schools['average_writing']
   boroughs = schools.groupby('borough')['total_SAT'].agg(['count', 'mean', 'std']).round(2)
+  boroughs = boroughs.rename(columns={'count' : 'num_schools', 'mean' : 'average_SAT', 'std' : 'std_SAT'})
+  largest_count = boroughs[boroughs['num_schools'] == boroughs['num_schools'].max()]
+  largest_mean = boroughs[boroughs['average_SAT'] == boroughs['average_SAT'].max()]
+  largest_std_dev = boroughs[boroughs['std_SAT'] == boroughs['std_SAT'].max()]
   
-  largest_std_dev = boroughs[boroughs["std"] == boroughs["std"].max()]
-  largest_std_dev = largest_std_dev.rename(columns={'count' : 'num_schools', 'mean' : 'average_SAT', 'std' : 'std_SAT'})
+  bor_label = []
+  for c in schools['borough'].unique():
+    bor_label.append(c)
+
+  colors = ['skyblue', 'orange', 'blue', 'green', 'yellow']
+  fig, ax = plt.subplots(figsize=(10, 6))
+
+  for borough, color in zip(boroughs.index, colors):
+    ax.barh(width=boroughs.loc[borough, 'num_schools'], y=borough, color=color, label=f'{borough}')
+
+  ax.set_xlabel('School Count')
+  ax.set_title('Number Of Schools in Each Borough')
+  ax.legend()
+  plt.show()
   ```
+### Locating NYC Borough with Highest Number of Schools Bar Chart:
+<img width="995" alt="Screenshot 2024-01-24 at 2 47 49 PM" src="https://github.com/Gregory204/NYC-SAT-Insights/assets/131078905/651ccb53-4e52-41a2-8d60-41107ac2ed8d">
+
+By this image we can say out of the 5 boroughs Brooklyn offers more schools than the other two. Thus granting kids multiple locations for an education if they live in the borough Brooklyn.
+
+- **Second Objective:** Locating NYC Borough with the largest mean for SAT scores. Store it in a variable called largest_mean that gives us the borough with the largest SAT score of schools in that borough. 
+
+- **Code Snippet:**
+  ```python
+  for borough, color in zip(boroughs.index, colors):
+    ax.barh(width=boroughs.loc[borough, 'std_SAT'], y=borough, color=color, label=f'{borough}')
+
+  ax.set_xlabel('SAT Scores')
+  ax.set_title('SAT Scores Across Boroughs')
+  ax.legend()
+  plt.show()
+  ```
+
+### Locating NYC Borough with Largest SAT Score Bar Chart:
+<img width="997" alt="Screenshot 2024-01-24 at 2 52 44 PM" src="https://github.com/Gregory204/NYC-SAT-Insights/assets/131078905/266de7d4-f5f4-4d11-ac70-16f170160c36">
+
+This chart shows us that in the borough of Staten Island, Kids are flourishing on the SAT. Giving parents insights that schools in Staten Island can help their kids with getting high academic achievements in the future if they sent their kids to a school in this borough.
+
+**Third Objective:** Locating NYC Borough with the largest standard deviations. Store it in a variable called largest_mean that gives us the borough with the largest SAT score of schools in that borough. 
+
+### Locating NYC Borough with Largest Standard Deviation Value Bar Chart:
+<img width="1000" alt="Screenshot 2024-01-24 at 2 57 17 PM" src="https://github.com/Gregory204/NYC-SAT-Insights/assets/131078905/8f462234-40df-473a-a57e-7ead8af9c29b">
+
+This chart shows us that in the borough of Manhattan there is a lot of educational diversity. However, a high standard deviation can indicate that the some schools are acheiving high scores while others aren't acheiving as high as the well performimg schools. It's a lot to consider.
 
 ## Conclusion
 
