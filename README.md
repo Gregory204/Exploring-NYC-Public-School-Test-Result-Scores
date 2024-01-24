@@ -33,7 +33,7 @@ This project focuses on analyzing the SAT performance of New York City (NYC) pub
 ### Top Math-Performing Schools Table:
 
 ### SQL Table:
-<img width="338" alt="Screenshot 2024-01-23 at 11 48 50 PM" src="https://github.com/Gregory204/NYC-SAT-Insights/assets/131078905/fef3e16b-eafc-4631-95f0-4690f17970e0">
+<img width="353" alt="Screenshot 2024-01-24 at 12 36 13 AM" src="https://github.com/Gregory204/NYC-SAT-Insights/assets/131078905/2aca490c-aa31-4239-a4cb-608b2eec52e5">
 
 - **Code Snippet:**
   ```python
