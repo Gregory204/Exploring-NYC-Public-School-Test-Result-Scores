@@ -30,6 +30,19 @@ This project focuses on analyzing the SAT performance of New York City (NYC) pub
 ### Top Math-Performing Schools Horizontal Bar Chart:
 <img width="998" alt="Screenshot 2024-01-23 at 11 40 20 PM" src="https://github.com/Gregory204/NYC-SAT-Insights/assets/131078905/f50fe8a6-bdbd-456e-8fb5-268406e330e8">
 
+### Top Math-Performing Schools Horizontal Table:
+
+### SQL Table:
+<img width="338" alt="Screenshot 2024-01-23 at 11 48 50 PM" src="https://github.com/Gregory204/NYC-SAT-Insights/assets/131078905/fef3e16b-eafc-4631-95f0-4690f17970e0">
+
+- **Code Snippet:**
+  ```python
+  Threshhold = 0.8 * 800
+  best_math_schools = schools.loc[schools['average_math'] >= Threshhold, ['school_name', 'average_math']]
+  best_math_schools = best_math_schools.sort_values(by='average_math', ascending=True)
+  print(best_math_schools.head(10))
+  ```
+
 
 ### 2. Identifying Top 10 Performing Schools Across All Sections
 
