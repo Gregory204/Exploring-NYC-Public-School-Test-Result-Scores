@@ -50,10 +50,24 @@ This project focuses on analyzing the SAT performance of New York City (NYC) pub
 
 - **Code Snippet:**
   ```python
+  # mean(): calculates the average total SAT score per school.
   schools["total_SAT"] = schools['average_math'] + schools['average_reading'] + schools['average_writing']
-  
-  top_10_schools = schools.groupby("school_name")["total_SAT"].mean().reset_index().sort_values("total_SAT", ascending=False).head(10)
+  top_10_schools = schools.groupby("school_name")["total_SAT"].mean().reset_index().sort_values("total_SAT", ascending=True).head(10)
+  fig = plt.figure(figsize=(10,6))
+  plt.barh(y=top_10_schools['school_name'], width=top_10_schools['total_SAT'])
+  plt.xlabel('SAT SCORES')
+  plt.title("Top 10 Performing Schools Across All Sections")
+  plt.yticks(fontsize=10)
+  plt.show()
   ```
+
+### Top 10 Performing Schools Across All Sections Bar Chart:
+<img width="999" alt="Screenshot 2024-01-24 at 2 06 50 AM" src="https://github.com/Gregory204/NYC-SAT-Insights/assets/131078905/0f6d8177-3d29-4faa-a3ae-84860df826e1">
+
+
+###  Top 10 Performing Schools Across All Sections Table:
+
+
 
 ### 3. Locating NYC Borough with Largest Standard Deviation
 
