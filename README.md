@@ -61,12 +61,12 @@ This project focuses on analyzing the SAT performance of New York City (NYC) pub
   plt.show()
   ```
 
-### Top 10 Performing Schools Across All Sections Bar Chart:
+### Top 10 Performing Schools Across All Sections Horizontal Bar Chart:
 <img width="999" alt="Screenshot 2024-01-24 at 2 06 50 AM" src="https://github.com/Gregory204/NYC-SAT-Insights/assets/131078905/0f6d8177-3d29-4faa-a3ae-84860df826e1">
 
 
-###  Top 10 Performing Schools Across All Sections Table:
-
+###  Top 10 Performing Schools Across All Sections SQL Table:
+<img width="314" alt="Screenshot 2024-01-24 at 9 35 45 AM" src="https://github.com/Gregory204/NYC-SAT-Insights/assets/131078905/f1c82389-9547-49df-b860-8af79e4b2a68">
 
 
 ### 3. Locating NYC Borough with Largest Standard Deviation
